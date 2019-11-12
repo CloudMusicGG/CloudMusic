@@ -2,7 +2,7 @@
  * @Author: Eternal
  * @Date: 2019-11-07 23:50:18
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-11 19:05:51
+ * @LastEditTime: 2019-11-12 21:28:11
  * @Description: 
  -->
 <template>
@@ -29,6 +29,7 @@ import newMusic from "../components/newMusic"
 import selected from "../components/selected"
 export default {
     name:"index",
+    props:['id'],
     data () {
         return {
             

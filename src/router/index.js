@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-08 18:06:17
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 14:29:25
+ * @LastEditTime: 2019-11-12 21:27:48
  * @Description: 
  */
 import Vue from 'vue'
@@ -23,6 +23,12 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/index/:id',
+      name: 'index',
+      component: index,
+      props:true
     },
     {
       path: '/sidePage',

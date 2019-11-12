@@ -2,12 +2,12 @@
  * @Author: rosalee
  * @Date: 2019-11-11 09:37:37
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 20:47:49
+ * @LastEditTime: 2019-11-12 20:56:49
  * @Description: 
  -->
 <template>
   <div class="box">
-    <div @click="myMethod">nihaonihaonihaonihap</div>
+    <!-- <div @click="myMethod">nihaonihaonihaonihap</div> -->
     <myInfoPageBack></myInfoPageBack>
     <myInfoPageHeader></myInfoPageHeader>
     <myInfoPageBaseInfo></myInfoPageBaseInfo>
