@@ -2,17 +2,18 @@
  * @Author: rosalee
  * @Date: 2019-11-11 09:37:37
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-11 18:00:16
+ * @LastEditTime: 2019-11-12 20:47:49
  * @Description: 
  -->
 <template>
   <div class="box">
+    <div @click="myMethod">nihaonihaonihaonihap</div>
     <myInfoPageBack></myInfoPageBack>
     <myInfoPageHeader></myInfoPageHeader>
     <myInfoPageBaseInfo></myInfoPageBaseInfo>
     <myInfoPageFavor class="myInfoPageFavor"></myInfoPageFavor>
-    <myInfoPageSongList class="myInfoPagSongList" type="创建" ></myInfoPageSongList>
-    <myInfoPageSongList class="myInfoPagSongList" type="收藏" ></myInfoPageSongList>
+    <myInfoPageSongList class="myInfoPagSongList" type="创建"></myInfoPageSongList>
+    <myInfoPageSongList class="myInfoPagSongList" type="收藏" ref="childmethod"></myInfoPageSongList>
   </div>
 </template>
 
@@ -35,6 +36,13 @@ export default {
     myInfoPageSongList,
     myInfoPageFavor
   }
+  // ,
+  // methods: {
+  //   myMethod() {
+  //     console.log("点击了");
+  //     console.log(this.$refs.childmethod.printit());
+  //   }
+  // }
 };
 </script>
 
@@ -48,7 +56,8 @@ export default {
   margin-top: 0;
   background: url(..\..\static\img\music_Cover14.jpg) center top;
 }
-.myInfoPagSongList,.myInfoPageFavor{
-  background:white;
+.myInfoPagSongList,
+.myInfoPageFavor {
+  background: white;
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-10 21:30:30
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-11 17:40:48
+ * @LastEditTime: 2019-11-12 20:48:05
  * @Description: 这是我的收藏歌单列表
  -->
 <template>
@@ -51,6 +51,10 @@ export default {
       this.songs = this.allSongs;
       this.flag = false;
     }
+    // ,
+    // printit(){
+    //   return "这是子组件的方法";
+    // }
   },
   created(){
     Axios.get('/recommend')
