@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-11 20:31:23
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 14:46:57
+ * @LastEditTime: 2019-11-12 19:45:35
  * @Description: 
  -->
 <template>
@@ -24,8 +24,6 @@
           </router-link>
           <span class="icon iconfont icon-gengduo4 li-more"></span>
           <span class="icon iconfont icon-bofang li-video"></span>
-      </li>
-      <li>
       </li>
     </ul>
   </div>
@@ -111,7 +109,10 @@ export default {
 }
 .songInfo-name{
   height: 65%;
-  font-size: .16rem;
+  font-size: .14rem;
+  color:rgb(51, 51, 51);
+  font-weight: bolder;
+  letter-spacing: 4px;
 }
 .songInfo-detail{
   height:35%;

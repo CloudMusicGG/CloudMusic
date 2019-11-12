@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-08 18:06:17
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 15:12:03
+ * @LastEditTime: 2019-11-12 19:31:58
  * @Description: 
  -->
 <template>
@@ -54,7 +54,7 @@
     <transition name="component-fade" mode="out-in">
       <router-view class="content" />
     </transition>
-    <play class="play"></play>
+    <!-- <play class="play"></play> -->
   </div>
 </template>
 
@@ -195,9 +195,9 @@ a {
 .ico {
   font-size: 0.2rem;
 }
-.play{
+/* .play{
   position:fixed;
   bottom:0;
   left:0;
-}
+} */
 </style>
