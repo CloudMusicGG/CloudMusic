@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-11 20:31:23
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 21:31:17
+ * @LastEditTime: 2019-11-13 08:35:40
  * @Description: 
  -->
 <template>
@@ -33,6 +33,7 @@
 import Axios from 'axios';
 export default {
   name: "albumPageSongList",
+  props:['id'],
   data() {
     return {
       songs:[]

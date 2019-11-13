@@ -2,7 +2,7 @@
  * @Author: Eternal
  * @Date: 2019-11-07 23:50:18
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 21:28:11
+ * @LastEditTime: 2019-11-13 08:43:57
  * @Description: 
  -->
 <template>
@@ -32,12 +32,25 @@ export default {
     props:['id'],
     data () {
         return {
-            
+            flag:false
         }
     },
    components:{
        navigation,banner,sort,center,play,bottom,
        newMusic,selected
+   },
+   created(){
+    //    console.log(this.$route.params.id);
+    //    console.log(this.id);
+       this.showOrNot();
+       console.log(this.flag);
+   },
+   methods:{
+       showOrNot(){
+           if(this.$route.params.id){
+               this.flag = true;
+           }
+       }
    }
 }
 </script>

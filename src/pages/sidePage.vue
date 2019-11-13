@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-09 09:40:56
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 20:23:48
+ * @LastEditTime: 2019-11-13 08:33:46
  * @Description: 这是侧边的个人信息页面，“侧边栏”
  -->
 <template>
@@ -27,7 +27,7 @@ export default {
   name: "sidePage",
   data() {
     return {
-      isLogin:true
+      isLogin:false
     };
   },
   components: {
