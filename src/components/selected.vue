@@ -2,7 +2,7 @@
  * @Author: Eternal
  * @Date: 2019-11-09 10:07:33
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-11 19:00:23
+ * @LastEditTime: 2019-11-13 11:56:08
  * @Description: 
  -->
 <template>
@@ -45,8 +45,8 @@ export default {
             return res.json()
         })
         .then(data=>{
-            this.selected = data,
-            console.log(this.selected)
+            this.selected = data
+            // console.log(this.selected)
         })
         .catch(err=>{
             console.log(err)

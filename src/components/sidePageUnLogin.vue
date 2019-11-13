@@ -2,14 +2,14 @@
  * @Author: rosalee
  * @Date: 2019-11-11 18:29:05
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 15:57:45
+ * @LastEditTime: 2019-11-13 10:45:24
  * @Description: 
  -->
 <template>
   <div class="unLoginBox">
     <p class="unLoginBox-p">登陆网易云音乐</p>
     <p class="unLoginBox-p">手机电脑多端同步，尽享海量高品质音乐</p>
-    <p class="loginNow" @click="clickHeader"><router-link to="" >立即登录</router-link></p>
+    <p class="loginNow" @click="clickHeader"><router-link to="/signInpag" >立即登录</router-link></p>
   </div>
 </template>
 

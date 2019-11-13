@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-11 20:31:23
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-13 08:35:40
+ * @LastEditTime: 2019-11-13 11:21:06
  * @Description: 
  -->
 <template>
@@ -18,8 +18,8 @@
     <ul>
       <li v-for="(song,index) in songs" :key="index">
           <span class="li-num">{{index+1}}</span>
-          <router-link :to='"/index/"+id' class="li__songInfo">
-            <div class="songInfo-name" >{{song.name}}</div>
+          <router-link :to="{name: 'indexId', params:{id:id,songId:song.sid}}" class="li__songInfo">
+            <div class="songInfo-name">{{song.name}}</div>
             <div class="songInfo-detail">{{song.brief}}</div>
           </router-link>
           <span class="icon iconfont icon-gengduo4 li-more"></span>

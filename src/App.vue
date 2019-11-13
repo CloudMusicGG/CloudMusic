@@ -2,59 +2,72 @@
  * @Author: rosalee
  * @Date: 2019-11-08 18:06:17
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 19:31:58
+ * @LastEditTime: 2019-11-13 11:54:43
  * @Description: 
  -->
 <template>
   <div id="app">
-    <div class="navgation">
-      <div class="navgation_w">
-        <!-- <span class="img_left"><img src="static/img/a1.jpg" alt=""></span> -->
-        <i
-          @click="drawer = true"
-          type="primary"
-          style="margin-left: 16px;"
-          class="icon iconfont icon-more_active"
-        ></i>
-        <div class="navgation_center">
-          <ul class="navgation_center_ul">
-            <li>
-              <router-link to="/myPage">
-                <span :class="{red:(key==0),black:!(key==0)}" @click="changeParams(0)">我的</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/">
-                <span :class="{red:(key==1),black:!(key==1)}" @click="changeParams(1)">发现</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/">
-                <span :class="{red:(key==2),black:!(key==2)}" @click="changeParams(2)">云村</span>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/">
-                <span :class="{red:(key==3),black:!(key==3)}" @click="changeParams(3)">视频</span>
-              </router-link>
-            </li>
-          </ul>
-          <!-- <span class="icon iconfont icon-zhangdan"></span> -->
+    <div v-show="!showPlay">
+      <div class="navgation">
+        <div class="navgation_w">
+          <!-- <span class="img_left"><img src="static/img/a1.jpg" alt=""></span> -->
+          <i
+            @click="drawer = true"
+            type="primary"
+            style="margin-left: 16px;"
+            class="icon iconfont icon-more_active"
+          ></i>
+          <div class="navgation_center">
+            <ul class="navgation_center_ul">
+              <li>
+                <router-link to="/myPage">
+                  <span :class="{red:(key==0),black:!(key==0)}" @click="changeParams(0)">我的</span>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/">
+                  <span :class="{red:(key==1),black:!(key==1)}" @click="changeParams(1)">发现</span>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/">
+                  <span :class="{red:(key==2),black:!(key==2)}" @click="changeParams(2)">云村</span>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/">
+                  <span :class="{red:(key==3),black:!(key==3)}" @click="changeParams(3)">视频</span>
+                </router-link>
+              </li>
+            </ul>
+            <!-- <span class="icon iconfont icon-zhangdan"></span> -->
+          </div>
+          <router-link to="/searchpage">
+            <i class="el-icon-search ico"></i>
+          </router-link>
         </div>
-        <router-link to="/searchpage">
-          <i class="el-icon-search ico"></i>
-        </router-link>
       </div>
+
+      <el-drawer :visible.sync="drawer" :direction="'ltr'" :size="'3.15rem'">
+        <sidePage class="sidePage" @clickGrandPa="getFinalDrawer"></sidePage>
+      </el-drawer>
+
+      <transition name="component-fade" mode="out-in">
+        <router-view class="content" @sendParams="getParams"/>
+      </transition>
+      <!-- <play class="play"></play> -->
+      <!--大播放器-->
     </div>
-
-    <el-drawer :visible.sync="drawer" :direction="'ltr'" :size="'3.15rem'">
-      <sidePage class="sidePage" @clickGrandPa="getFinalDrawer"></sidePage>
-    </el-drawer>
-
-    <transition name="component-fade" mode="out-in">
-      <router-view class="content" />
-    </transition>
-    <!-- <play class="play"></play> -->
+    <musicplay class="musicplay" :showPlay="showPlay" @back="back" ref="musicplay" @isPlay="isPlay"></musicplay>
+    <!--小播放器-->
+    <miniplayer
+      class="miniplayer"
+      @showPlayer="showPlayer"
+      @play="play"
+      @pause="pause"
+      :isPlay="miniIsPlay"
+      :playMes="obj"
+    ></miniplayer>
   </div>
 </template>
 
@@ -62,13 +75,17 @@
 import Vue from "vue";
 import { Drawer } from "element-ui";
 import sidePage from "@/pages/sidePage";
-import play from "@/components/play";
+import musicplay from "@/Player/musicplay";
+import miniplayer from "@/Player/miniplayer";
 export default {
   name: "App",
   data() {
     return {
       drawer: false,
-      key: 1
+      key: 1,
+      showPlay: false,
+      miniIsPlay: true,
+      obj: {}
     };
   },
   methods: {
@@ -87,11 +104,34 @@ export default {
       console.log(this.key);
       this.key = num;
       console.log(this.key);
+    },
+    //  点击小播放器进入大播放器
+    showPlayer() {
+      this.showPlay = true;
+    }, //	点击大播放器退出按钮退出大播放器
+    back() {
+      this.showPlay = false;
+    },
+    play() {
+      this.$refs.musicplay.play();
+    },
+    pause() {
+      this.$refs.musicplay.pause();
+    },
+    isPlay(date, obj) {
+      this.miniIsPlay = date;
+      this.obj = obj;
+    },
+    //获取从index传过来的正在播放的歌曲歌单信息
+    getParams(data1,data2){
+      this.showPlay = data1;
+      console.log(data2);
     }
   },
   components: {
     sidePage,
-    play
+    musicplay,
+    miniplayer
   }
 };
 </script>
@@ -195,9 +235,19 @@ a {
 .ico {
   font-size: 0.2rem;
 }
-/* .play{
-  position:fixed;
-  bottom:0;
-  left:0;
-} */
+
+.musicplay{
+	position: fixed;
+	bottom: 0;
+	height: 100%;
+	z-index: 1001;
+	/*display: none;*/
+}
+.miniplayer{
+	position: fixed;
+	bottom: 0;
+	height: 100%;
+	z-index: 1000;
+	/*display: none;*/
+}
 </style>

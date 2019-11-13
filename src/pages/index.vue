@@ -2,7 +2,7 @@
  * @Author: Eternal
  * @Date: 2019-11-07 23:50:18
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-13 08:43:57
+ * @LastEditTime: 2019-11-13 11:55:31
  * @Description: 
  -->
 <template>
@@ -29,7 +29,7 @@ import newMusic from "../components/newMusic"
 import selected from "../components/selected"
 export default {
     name:"index",
-    props:['id'],
+    props:['id','songId'],
     data () {
         return {
             flag:false
@@ -40,15 +40,16 @@ export default {
        newMusic,selected
    },
    created(){
-    //    console.log(this.$route.params.id);
-    //    console.log(this.id);
+       //    console.log(this.id);
+    //    console.log(this.$route.params);
        this.showOrNot();
-       console.log(this.flag);
+    //    console.log(this.flag);
    },
    methods:{
        showOrNot(){
            if(this.$route.params.id){
                this.flag = true;
+               this.$emit("sendParams",this.flag,this.$route.params);
            }
        }
    }

@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-08 18:06:17
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-12 21:27:48
+ * @LastEditTime: 2019-11-13 11:16:37
  * @Description: 
  */
 import Vue from 'vue'
@@ -14,6 +14,8 @@ import myInfoPage from '@/pages/myInfoPage'
 import searchpage from '@/pages/searchpage'
 import albumPage from '@/pages/albumPage'
 import musicplay from '@/pages/musicplay'
+import registrationpag from '@/pages/registrationpag'
+import signInpag from '@/pages/signInpag'
 
 Vue.use(Router)
 
@@ -26,9 +28,14 @@ export default new Router({
     },
     {
       path: '/index/:id',
-      name: 'index',
+      name: 'indexId',
       component: index,
       props:true
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: index
     },
     {
       path: '/sidePage',
@@ -63,6 +70,16 @@ export default new Router({
       name: 'musicplay',
       component: musicplay,
       props:true
+    },
+    {
+      path: '/registrationpag',
+      name: 'registrationpag',
+      component: registrationpag
+    },
+    {
+      path: '/signInpag',
+      name: 'signInpag',
+      component: signInpag
     }
   ]
 })
