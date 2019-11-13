@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-11 10:27:53
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-11 16:46:45
+ * @LastEditTime: 2019-11-13 16:20:33
  * @Description: 这是个人主页的显示头像，用户名等基本信息的部分
  -->
 <template>
@@ -20,7 +20,12 @@
           <span>Lv.7</span>
         </p>
       </div>
-      <div class="details__right"></div>
+      <div class="details__right">
+        <router-link :to='"/changeMyInfoPage/"+userInfo.telephoneNum' class="edit">
+          编辑
+        </router-link>
+        <!-- <span class=""></span> -->
+      </div>
     </div>
   </div>
 </template>
@@ -38,7 +43,7 @@ export default {
     Axios.get('/user')
     .then(response=>{
       this.userInfo = response.data[0];
-      console.log(response.data[0]);
+      console.log(this.userInfo);
     })
   }
 }
@@ -112,5 +117,27 @@ export default {
 }
 .left-bottom .sexAndAge{
   background: #90bfcd;
+}
+.details__right{
+  position: relative;
+  width:50%;
+  float: right;
+  height: .68rem;
+}
+.edit{
+  line-height: .2rem;
+  vertical-align: middle;
+  height:.22rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: .12rem;
+  letter-spacing: 2px;
+  color:white;
+  background:rgba(255, 255, 255, 0.24);
+  float: right;
+  position: absolute;
+  right:0;
+  top:40%;
+  border-radius:5px;
 }
 </style>

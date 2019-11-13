@@ -2,7 +2,7 @@
  * @Author: rosalee
  * @Date: 2019-11-08 18:06:17
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-13 11:16:37
+ * @LastEditTime: 2019-11-13 16:20:14
  * @Description: 
  */
 import Vue from 'vue'
@@ -16,6 +16,7 @@ import albumPage from '@/pages/albumPage'
 import musicplay from '@/pages/musicplay'
 import registrationpag from '@/pages/registrationpag'
 import signInpag from '@/pages/signInpag'
+import changeMyInfoPage from '@/pages/changeMyInfoPage'
 
 Vue.use(Router)
 
@@ -80,6 +81,12 @@ export default new Router({
       path: '/signInpag',
       name: 'signInpag',
       component: signInpag
+    },
+    {
+      path: '/changeMyInfoPage/:telephoneNum',
+      name: 'changeMyInfoPage',
+      component: changeMyInfoPage,
+      props:true
     }
   ]
 })
