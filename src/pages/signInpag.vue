@@ -2,7 +2,7 @@
  * @Author: Eternal
  * @Date: 2019-11-11 17:05:09
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-13 10:48:07
+ * @LastEditTime: 2019-11-13 12:15:00
  * @Description: 
  -->
 <template>
@@ -34,7 +34,7 @@ export default {
     background: url(../assets/img/b.jpg) no-repeat; background-size: 100% 100%;
     position: relative;
     top: 0;
-    z-index: 999;
+    z-index: 1001;
     margin: 0;
 }
 </style>

@@ -2,12 +2,12 @@
  * @Author: rosalee
  * @Date: 2019-11-08 18:06:17
  * @LastEditors: rosalee
- * @LastEditTime: 2019-11-13 11:54:43
+ * @LastEditTime: 2019-11-13 12:14:33
  * @Description: 
  -->
 <template>
   <div id="app">
-    <div v-show="!showPlay">
+    <div style="height:100%;" v-show="!showPlay">
       <div class="navgation">
         <div class="navgation_w">
           <!-- <span class="img_left"><img src="static/img/a1.jpg" alt=""></span> -->
